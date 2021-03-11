@@ -1,0 +1,70 @@
+.App {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background-color: lavenderblush;
+}
+
+.calculator{
+  width: 275px;
+  height: 165px;
+  background-color: darkgray;
+  border-radius: 20px;
+  padding: 10px;
+  border: 3px solid #2D6047;
+}
+.Buttons{
+
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  border:2px solid #96afa3;
+  background-color: #c0cfc7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Button{
+
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 15px;
+  background-color:#fce2cd;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  padding: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .2s;
+  border: 2px solid lavenderblush;
+
+}
+.ActiveButton{
+  background-color:#fce2cd;
+}
+
+.Counter__Red{
+  color: crimson;
+
+}
+.Counter{
+  background-color: #fce2cd;
+  width: 100%;
+  height: 90px;
+  border-radius: 20px;
+  border:2px solid lavenderblush;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 43px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
