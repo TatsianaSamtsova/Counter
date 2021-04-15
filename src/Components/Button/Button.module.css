@@ -1,0 +1,37 @@
+.button{
+
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 15px;
+    background-color:#fce2cd;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    padding: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .2s;
+    border: 2px solid lavenderblush;
+
+}
+.button:hover {
+    background: darkgray;
+    box-shadow: 0 10px 20px rgba(152, 159, 156, 0.3);
+    color: white;
+    transform: translateY(-7px);
+
+}
+.button:disabled {
+    background: #fce2cd;
+    box-shadow: none;
+    color: darkgray;
+    transform: none;
+
+
+}
+.ActiveButton{
+    background-color:#fce2cd;
+}

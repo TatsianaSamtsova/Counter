@@ -1,27 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
-import {Counter} from "./Counter";
-import {Buttons} from "./Buttons";
-
+import Counter from "./Components/Counter/Counter";
 
 
 function App() {
-    const [number, setNumber] = useState<number>(0)
 
-    const Inc= ()=>{
-        if( number< 5)
-        setNumber(number+1)
-    }
-    const Reset =()=>{
-        setNumber(0)
-    }
     return (
         <div className="App">
-            <div className="calculator">
-            <Counter count={number}/>
-            <Buttons Inc={Inc} Reset={Reset} count={number}/>
-
-            </div>
+             <Counter />
         </div>
     );
 }
