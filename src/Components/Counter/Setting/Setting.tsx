@@ -1,38 +1,47 @@
-import React from 'react';
-import Button from "../../Button/Button";
-import SettingDisplay from "./SettingDisplay";
+import React, {ChangeEvent} from 'react';
 import s from './Setting.module.css'
 
-
-type PropsType = {
-    count: number
+type SettingDisplayPropsType = {
     maxValue: number
     startValue: number
-    setCount: (count: number) => void
-    setMax: (max: number) => void
-    maxValueChange: (maxValue: number) => void
-    startValueChange: (startValue: number) => void
-    setCustomization: () => void
+    onKeyPress: (e:React.KeyboardEvent<HTMLInputElement>) => void
+    onMaxValueChange:(e: ChangeEvent<HTMLInputElement>) => void
+    onStartValueChange:(e: ChangeEvent<HTMLInputElement>) => void
 }
 
-function Setting(props: PropsType) {
+
+
+function Setting(props: SettingDisplayPropsType) {
+
 
     return (
-        <div className={s.display}>
-            <div className={s.counter}>
-            <SettingDisplay maxValue={props.maxValue} startValue={props.startValue}
-                                  maxValueChange={props.maxValueChange}
-                                  startValueChange={props.startValueChange}/>
+
+        <div className={s.counter}>
+            <div>
+                <label>max value</label>
+                <input
+                    className={
+                        `${s.inputValue} 
+                         ${props.maxValue < 0 ? s.inputValue_Red : '' ||
+                        props.startValue >= props.maxValue ? s.inputValue_Red : ''}`
+                    }
+                    type='number' value={props.maxValue}
+                    onKeyPress={(event: any)=>{props.onKeyPress(event )}}
+                    onChange={props.onMaxValueChange}/>
             </div>
-            <div className={s.buttons}>
-            <Button title={'set'} callBack={props.setCustomization} disabled={
-                props.startValue < 0 ? true : false ||
-                props.maxValue < 0 ? true : false ||
-                    props.startValue >= props.maxValue}/>
+            <div>
+                <label>start value<input
+                    className={
+                        `${s.inputValue} 
+                         ${props.startValue < 0 ? s.inputValue_Red : '' ||
+                        props.startValue >= props.maxValue ? s.inputValue_Red : ''}`
+                    }
+                    type='number' value={props.startValue}
+                    onChange={props.onStartValueChange}/></label>
             </div>
         </div>
+
     )
 }
 
 export default Setting;
-

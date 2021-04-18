@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Button from "../Button/Button";
-import Setting from "./Setting/Setting";
+import SettingContainer from "./Setting/SettingContainer";
 import Scoreboard from "./Scoreboard/Scoreboard";
 import s from './Counter.module.css'
 
@@ -8,9 +8,9 @@ import s from './Counter.module.css'
 function Counter() {
 
     let [count, setCount] = useState<number>(0);
-    let [max, setMax] = useState<number>(0);
+    let [max, setMax] = useState<number>(5);
 
-    let [maxValue, setMaxValue] = useState<number>(1);
+    let [maxValue, setMaxValue] = useState<number>(5);
     let [startValue, setStartValue] = useState<number>(0);
 
     let maxValueChange = (maxValue: number) => {
@@ -46,11 +46,11 @@ function Counter() {
                 </div>
             </div>
             <div >
-                <Setting count={count} setCount={setCount} setMax={setMax}
-                         maxValue={maxValue} startValue={startValue}
-                         maxValueChange={maxValueChange}
-                         startValueChange={startValueChange}
-                         setCustomization={setSetting}/>
+                <SettingContainer count={count} setCount={setCount} setMax={setMax}
+                                  maxValue={maxValue} startValue={startValue}
+                                  maxValueChange={maxValueChange}
+                                  startValueChange={startValueChange}
+                                  setSetting={setSetting}/>
             </div>
 
         </div>
