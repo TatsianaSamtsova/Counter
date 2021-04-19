@@ -12,7 +12,8 @@ type SettingDisplayPropsType = {
 
 
 function Setting(props: SettingDisplayPropsType) {
-
+    const maxError = props.maxValue < 0 || props.startValue >= props.maxValue
+    const startError = props.startValue < 0 || props.startValue >= props.maxValue
 
     return (
 
@@ -22,21 +23,20 @@ function Setting(props: SettingDisplayPropsType) {
                 <input
                     className={
                         `${s.inputValue} 
-                         ${props.maxValue < 0 ? s.inputValue_Red : '' ||
-                        props.startValue >= props.maxValue ? s.inputValue_Red : ''}`
+                         ${ maxError ? s.inputValue_Red : ''}`
                     }
                     type='number' value={props.maxValue}
-                    onKeyPress={(event: any)=>{props.onKeyPress(event )}}
+                    onKeyPress={(e)=>{props.onKeyPress(e )}}
                     onChange={props.onMaxValueChange}/>
             </div>
             <div>
                 <label>start value<input
                     className={
                         `${s.inputValue} 
-                         ${props.startValue < 0 ? s.inputValue_Red : '' ||
-                        props.startValue >= props.maxValue ? s.inputValue_Red : ''}`
+                         ${startError ? s.inputValue_Red : ''}`
                     }
                     type='number' value={props.startValue}
+                    onKeyPress={(e)=>{props.onKeyPress(e )}}
                     onChange={props.onStartValueChange}/></label>
             </div>
         </div>
